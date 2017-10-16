@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping(value="/goUser")
-@Api(value="users", description="Operations pertaining to products in Online Store")
+@Api(value="users", description="Operations pertaining to User")
 public class UserController {
 	
 	@Autowired
