@@ -8,18 +8,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import io.swagger.annotations.ApiModelProperty;
 
 @Entity
-@Document(collection="user")
+@Document(collection="users")
 public class User {
 	
 	@Id
-	@ApiModelProperty(notes = "Accessible to user password")
+	@ApiModelProperty(notes = "Accessible to id")
+	private String id;
+
+	@ApiModelProperty(notes = "Accessible  to specific emailid")
 	private String emailid;
 	
-	@ApiModelProperty(notes = "Accessible  to specific user")
+	@ApiModelProperty(notes = "Accessible  to specific username")
 	private String username;
-	
-	
-	
 	
     //constructors
 	public User() {
@@ -28,11 +28,15 @@ public class User {
 	}
 
 
-	public User(String username, String emailid) {
+	public User(String id, String emailid, String username) {
 		super();
-		this.username = username;
+		this.id = id;
 		this.emailid = emailid;
+		this.username = username;
 	}
+
+
+
 
 
 	public String getUsername() {
@@ -54,7 +58,14 @@ public class User {
 		this.emailid = emailid;
 	}
 
-	
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
 	
 
 }

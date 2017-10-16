@@ -13,32 +13,38 @@ public class UserService {
 	
 	@Autowired
 	private UserRepository userrepository;
+
+
 	
 	
-	public Boolean add(User user) {
-		
-		if(user.getEmailid()==null || user.getEmailid()=="" || user.getUsername()==null || user.getUsername()=="") {
-			return false;
-		}
+	public UserRepository getUserrepository() {
+		return userrepository;
+	}
+
+	public void setUserrepository(UserRepository userrepository) {
+		this.userrepository = userrepository;
+	}
+
+	public User add(User user) {
 		
 		userrepository.save(user);
-		return true;
+		return user;
 	}
 	
-	public User getByEmailid(String emailid){
+	public User getByid(String id){
 		
-		User user =userrepository.findOne(emailid);
+		User user =userrepository.findOne(id);
 		return user;
 		
 	}
 	
-	public Boolean updateUser(User user) {
+	public User updateUser(User user) {
 		userrepository.save(user);
-		return true;
+		return user;
 	}
 	
-	public void deleteUser(String emailid) {
-		userrepository.delete(emailid);
+	public void deleteUser(String id) {
+		userrepository.delete(id);
 	}
 	
 	public List<User> getAll(){

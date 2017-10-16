@@ -18,7 +18,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select() 
                 .apis(RequestHandlerSelectors.basePackage("com.stackroute.project.controller"))
-                .paths(PathSelectors.regex("/goplaces.*"))
+                .paths(PathSelectors.regex("/goUser.*"))
                 .build()
                 .apiInfo(metaData());
              
