@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,19 +55,19 @@ public class UserController {
         User usera=userservice.updateUser(user);
 		
 		if(usera.equals(user)) {
-		return new ResponseEntity<String>("user added",HttpStatus.OK);
+		return new ResponseEntity<String>("User saved successfully",HttpStatus.OK);
 		}
 		return new ResponseEntity<String>("Not valid id user",HttpStatus.OK);
 		
 	}
 	
-	@PostMapping(value="/updateuser",consumes= {"application/json"})
+	@PutMapping(value="/updateuser",consumes= {"application/json"})
 	@ApiOperation(value = "Update a user")
 	public ResponseEntity<String> userupdate(@RequestBody User user){
 		User usera=userservice.updateUser(user);
 		
 		if(usera.equals(user)) {
-		return new ResponseEntity<String>("updated user",HttpStatus.OK);
+		return new ResponseEntity<String>("User updated successfully",HttpStatus.OK);
 		}
 		return new ResponseEntity<String>("Not updated user",HttpStatus.OK);
 		
@@ -87,7 +88,7 @@ public class UserController {
 	@DeleteMapping(value="/delete/{id}", consumes="application/json")
 	  public ResponseEntity<String> delete(@PathVariable("id")  String id){
 		userservice.deleteUser(id);
-		return new ResponseEntity<String>("Deleted Succesfully",HttpStatus.OK);
+		return new ResponseEntity<String>("Deleted succesfully",HttpStatus.OK);
 	}
 
 }
